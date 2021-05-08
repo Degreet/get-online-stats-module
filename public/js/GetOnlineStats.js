@@ -17,7 +17,7 @@ class GetOnlineStats {
 		} else next();
 
 		function next() {
-			const url = 'https://get-online-stats-module.herokuapp.com/';
+			const url = 'https://get-online-stats.herokuapp.com/';
 			const socket = io.connect(url);
 			socket.emit('join', { id: roomId, secret: secretKey });
 
