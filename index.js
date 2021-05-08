@@ -19,7 +19,7 @@ app.get('/docs', (_, resp) => resp.render('docs'));
 
 app.get('/my-rooms', (_, resp) => {
 	resp.set('Access-Control-Allow-Origin', '*');
-	resp.render('my-rooms');
+	resp.render.apply(resp);
 });
 
 app.post('/api/generate-new-room', async (req, resp) => {
