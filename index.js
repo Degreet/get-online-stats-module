@@ -10,7 +10,7 @@ const app = express();
 
 const server = require('http').createServer(app, {
 	cors: {
-		origin: 'https://example.com',
+		origin: 'https://get-online-stats.herokuapp.com/',
 		methods: ['GET', 'POST'],
 	},
 });
