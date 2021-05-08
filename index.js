@@ -10,7 +10,7 @@ const app = express();
 
 const server = require('http').createServer(app, {
 	cors: {
-		origin: 'https://get-online-stats.herokuapp.com/',
+		origin: '*',
 		methods: ['GET', 'POST'],
 	},
 });
@@ -20,7 +20,7 @@ const rooms = [{ id: 'dJ2indsaoi', users: [], secret: 'SNiowqhnuwi' }];
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 app.get('/', (_, resp) => resp.render('index'));
 app.get('/docs', (_, resp) => resp.render('docs'));
