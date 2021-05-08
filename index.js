@@ -1,6 +1,7 @@
 const express = require('express');
 const randomstring = require('randomstring');
 const streamToString = require('stream-to-string');
+const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -13,14 +14,11 @@ const rooms = [{ id: 'dJ2indsaoi', users: [], secret: 'SNiowqhnuwi' }];
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(cors());
 
 app.get('/', (_, resp) => resp.render('index'));
 app.get('/docs', (_, resp) => resp.render('docs'));
-
-app.get('/my-rooms', (_, resp) => {
-	resp.set({ 'Access-Control-Allow-Origin': '*' });
-	resp.sendFile(__dirname + '/public/my-rooms.html');
-});
+app.get('/my-rooms', (_, resp) => resp.render('my-rooms'));
 
 app.post('/api/generate-new-room', async (req, resp) => {
 	const { projectName } = JSON.parse(await streamToString(req));
