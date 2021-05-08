@@ -16,7 +16,11 @@ app.use(express.static('public'));
 
 app.get('/', (_, resp) => resp.render('index'));
 app.get('/docs', (_, resp) => resp.render('docs'));
-app.get('/my-rooms', (_, resp) => resp.render('my-rooms'));
+
+app.get('/my-rooms', (_, resp) => {
+	resp.set('Access-Control-Allow-Origin', '*');
+	resp.render('my-rooms');
+});
 
 app.post('/api/generate-new-room', async (req, resp) => {
 	const { projectName } = JSON.parse(await streamToString(req));
