@@ -19,7 +19,10 @@ class GetOnlineStats {
 		function next() {
 			if (!roomId) return;
 
-			const socket = io.connect('http://localhost:3000/');
+			const socket = io.connect(
+				'http://get-online-stats-module.degreet.repl.co/'
+			);
+
 			socket.emit('join', { id: roomId, secret: secretKey });
 
 			socket.on('join error', (msg) => {
