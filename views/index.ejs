@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <%- include('parts/head.ejs') %>
   <title>GetOnlineStats</title>
+  <script src="/js/GetOnlineStats.js"></script>
+  <script src="/js/example.js"></script>
 </head>
 <body>
   <%- include('parts/header.ejs') %>
   <main class="container">
     <h1>GetOnlineStats</h1>
-    <p>JavaScript module, which can get online users count on site,
-      based on <a href="https://socket.io/">Socket.io</a></p>
+    <div class="info">
+      <p>JavaScript module, which can get online users count on site,
+        based on <a href="https://socket.io/">Socket.io</a></p>
+      <p>For example, online on this page: <b id="onlineCountEl">0</b></p>
+    </div>
     <div class="btns">
       <a href="/docs" class="btn waves-effect waves-light">Get started</a>
-      <a href="/example" class="btn waves-effect waves-light">View example</a>
       <a href="/js/GetOnlineStats.js" class="btn waves-effect waves-light" download>Download</a>
     </div>
   </main>

@@ -1,4 +1,4 @@
-const getOnlineStats = new GetOnlineStats(true);
+const getOnlineStats = new GetOnlineStats();
 
 getOnlineStats.init({
 	roomId: 'dJ2indsaoi',

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('parts/head.ejs') %>
+  <title>GetOnlineStats: Create new room</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/new-room.js" defer></script>
+</head>
+<body>
+  <%- include('parts/header.ejs') %>
+  <main class="container">
+    <h1>My rooms</h1>
+    <div class="data" id="myRoomsList">
+      <div class="info">
+        <p>You don't have rooms</p>
+      </div>
+    </div>
+    <div class="btns">
+      <button id="createBtn" class="btn waves-effect waves-light">Create new room</button>
+    </div>
+  </main>
+</body>
+</html>

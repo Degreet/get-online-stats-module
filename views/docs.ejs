@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('parts/head.ejs') %>
+  <title>GetOnlineStats: Documentaion</title>
+  <script src="/js/docs.js" defer></script>
+</head>
+<body>
+  <%- include('parts/header.ejs') %>
+  <main class="container">
+    <h1>Documentation</h1>
+    <div class="data mb">
+      <details>
+        <summary>Step 1. Creating room</summary>
+
+        <p>
+          For start using GetOnlineStats module, you need to create room.
+          In the room saves data: ID, secret key. This is necessary so that
+          each site has its own online. To create room you need go
+          to <a href="/new-room">/new-room</a>. The received data must be saved.
+          If you lose data, you cannot get it back.
+        </p>
+
+        <a href="/new-room" class="btn waves-effect waves-light">Create new room</a>
+      </details>
+      <details>
+        <summary>Step 2. Installing module</summary>
+
+        <p>
+          The next step is installing GetOnlineStats module.
+          To download module you need click button "Download",
+          and downloaded file connect to your html page.
+          For example,<br><pre id="connectModuleCodeEl"></pre>
+        </p>
+
+        <a href="/js/GetOnlineStats.js"
+          class="btn waves-effect waves-light" download>Download</a>
+      </details>
+      <details>
+        <summary>Step 3. Init online counter</summary>
+
+        <p>
+          After module installing, you need to init online counter.
+          To make this, add new script, and use this code:
+
+          <pre id="exampleCodeInitEl"></pre>
+        </p>
+      </details>
+    </div>
+  </main>
+</body>
+</html>

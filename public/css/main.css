@@ -10,3 +10,34 @@ main p {
 	opacity: 0.9;
 	font-size: 20px;
 }
+
+main .info p {
+	margin: 0 !important;
+}
+
+main .data {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+main .data details p {
+	font-size: 20px;
+	opacity: 0.8;
+}
+
+main .data details summary {
+	font-size: 25px;
+	cursor: pointer;
+}
+
+pre {
+	background: #ebebeb;
+	color: #333;
+	border-radius: 3px;
+	padding: 10px;
+}
+
+.mb {
+	margin-bottom: 30px;
+}

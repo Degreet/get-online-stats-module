@@ -1,5 +1,6 @@
 const express = require('express');
 const randomstring = require('randomstring');
+const streamToString = require('stream-to-string');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -13,12 +14,24 @@ const rooms = [{ id: 'dJ2indsaoi', users: [], secret: 'SNiowqhnuwi' }];
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/', (req, resp) => {
-	resp.render('index');
-});
+app.get('/', (_, resp) => resp.render('index'));
+app.get('/docs', (_, resp) => resp.render('docs'));
+app.get('/new-room', (_, resp) => resp.render('new-room'));
 
-app.get('/example', (req, resp) => {
-	resp.render('example');
+app.post('/api/generate-new-room', async (req, resp) => {
+	const { projectName } = JSON.parse(await streamToString(req));
+	if (!projectName) return;
+
+	const id = randomstring.generate(8);
+	const secret = randomstring.generate();
+
+	rooms.push({
+		id,
+		secret,
+		users: [],
+	});
+
+	resp.send(JSON.stringify({ id, secret }));
 });
 
 io.sockets.on('connection', (socket) => {
