@@ -10,8 +10,10 @@ const app = express();
 
 const server = require('http').createServer(app, {
 	cors: {
-		origin: '*',
+		origin: 'https://get-online-stats.herokuapp.com/',
 		methods: ['GET', 'POST'],
+		allowedHeaders: ['my-custom-header'],
+		credentials: true,
 	},
 });
 
