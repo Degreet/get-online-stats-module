@@ -20,8 +20,15 @@ const rooms = [{ id: 'dJ2indsaoi', users: [], secret: 'SNiowqhnuwi' }];
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use(cors({ origin: '*' }));
-app.options('*', cors());
+
+app.use(function (req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+	res.header(
+		'Access-Control-Allow-Headers',
+		'Origin, X-Requested-With, Content-Type, Accept'
+	);
+	next();
+});
 
 app.get('/', (_, resp) => resp.render('index'));
 app.get('/docs', (_, resp) => resp.render('docs'));
