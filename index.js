@@ -8,7 +8,13 @@ dotenv.config();
 const port = process.env.PORT;
 const app = express();
 
-const server = require('http').createServer(app);
+const server = require('http').createServer(app, {
+	cors: {
+		origin: 'https://example.com',
+		methods: ['GET', 'POST'],
+	},
+});
+
 const io = require('socket.io')(server);
 const rooms = [{ id: 'dJ2indsaoi', users: [], secret: 'SNiowqhnuwi' }];
 
