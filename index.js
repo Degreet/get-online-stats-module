@@ -18,8 +18,8 @@ app.get('/', (_, resp) => resp.render('index'));
 app.get('/docs', (_, resp) => resp.render('docs'));
 
 app.get('/my-rooms', (_, resp) => {
-	resp.set('Access-Control-Allow-Origin', '*');
-	resp.render.apply(resp);
+	res.set({ 'Access-Control-Allow-Origin': '*' });
+	resp.render('my-rooms');
 });
 
 app.post('/api/generate-new-room', async (req, resp) => {
