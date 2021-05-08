@@ -1,7 +1,7 @@
 class GetOnlineStats {
 	init(params) {
 		const { roomId, secretKey, needSocketIoImport, callback } = params;
-		if (!roomId || !secretKey) return;
+		if (!roomId || !secretKey) return console.error('Not enough data');
 
 		if (needSocketIoImport) {
 			const src = `https://cdn.socket.io/4.0.2/socket.io.min.js`;
@@ -17,12 +17,8 @@ class GetOnlineStats {
 		} else next();
 
 		function next() {
-			if (!roomId) return;
-
-			const socket = io.connect(
-				'http://get-online-stats-module.degreet.repl.co/'
-			);
-
+			const url = 'https://get-online-stats-module.herokuapp.com/';
+			const socket = io.connect(url);
 			socket.emit('join', { id: roomId, secret: secretKey });
 
 			socket.on('join error', (msg) => {
